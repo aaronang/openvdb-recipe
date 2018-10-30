@@ -23,11 +23,13 @@ requirements:
     - glfw3
     - blosc
     - tbb
+    - boost
   run:
     - openexr
     - glfw3
     - blosc
     - tbb
+    - boost
 
 about:
   home: http://www.openvdb.org/

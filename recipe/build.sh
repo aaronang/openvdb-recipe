@@ -3,6 +3,7 @@
 mkdir build
 cd build
 
+export BOOST_ROOT=$PREFIX
 export GLFW3_ROOT=$PREFIX
 export TBB_ROOT=$PREFIX
 export ILMBASE_ROOT=$PREFIX
