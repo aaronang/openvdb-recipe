@@ -3,6 +3,11 @@
 mkdir build
 cd build
 
+declare -a CMAKE_PLATFORM_FLAGS
+if [[ ${HOST} =~ .*linux.* ]]; then
+    CMAKE_PLATFORM_FLAGS+=(-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake")
+fi
+
 export BOOST_ROOT=$PREFIX
 export GLFW3_ROOT=$PREFIX
 export TBB_ROOT=$PREFIX
@@ -20,6 +25,7 @@ cmake $SRC_DIR -G "Ninja" \
     -DBUILD_SHARED_LIBS:BOOL=ON \
     -DCMAKE_CXX_FLAGS:STRING="-std=c++11" \
     -DCMAKE_BUILD_TYPE:STRING=Release \
-    -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX
+    -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX \
+    ${CMAKE_PLATFORM_FLAGS[@]}
 
 ninja install

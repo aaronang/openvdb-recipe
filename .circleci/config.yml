@@ -11,4 +11,7 @@ jobs:
       - run: |
           conda install --yes conda-build
           conda update --yes conda conda-build
+      - run: |
+          mkdir -p /opt/graphics/OpenGL/lib
+          ln -s /usr/lib/x86_64-linux-gnu/libGLU.so /opt/graphics/OpenGL/lib
       - run: conda build recipe -c aaronang -c menpo -c conda-forge
