@@ -11,5 +11,4 @@ jobs:
       - run: |
           conda install --yes conda-build
           conda update --yes conda conda-build
-          conda list
       - run: conda build recipe -c aaronang -c menpo -c conda-forge
