@@ -42,6 +42,7 @@ requirements:
     - tbb ==2018.0.2
     - boost
     - libglu                          # [linux]
+    - glibc214
   run:
     - openexr
     - glfw3
